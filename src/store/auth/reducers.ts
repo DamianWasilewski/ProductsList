@@ -1,33 +1,5 @@
-import {
-    LoginAction, LoginFailAction, LoginSuccessAction,
-    AuthActionType,
-    AuthActions
-} from "./actions";
+import { AuthActionType, AuthActions } from "./actions";
 import { AuthState, authInitState } from "./state";
-
-function login( state: AuthState, action: LoginAction ) {
-    return {
-        ...state,
-        isLoggingIn: true,
-        loginError: false,
-    };
-}
-
-function loginSuccess( state: AuthState, action: LoginSuccessAction ) {
-    return {
-        ...state,
-        isLoggingIn: false,
-        loginError: false,
-    }
-}
-
-function loginFail( state: AuthState, action: LoginFailAction ) {
-    return {
-        ...state,
-        isLoggingIn: false,
-        loginError: true,
-    }
-}
 
 export const authReducer = ( state: AuthState = authInitState, action: AuthActions ) => {
     switch ( action.type ) {
@@ -42,6 +14,7 @@ export const authReducer = ( state: AuthState = authInitState, action: AuthActio
                 ...state,
                 isLoggingIn: false,
                 loginError: false,
+                isLoggedIn: true,
             };
         case AuthActionType.LOGIN_FAIL:
             return {

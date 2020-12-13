@@ -8,7 +8,7 @@ import { fetchProducts } from "../../services";
 function fetchProductsEpic( action$: Observable<FetchProductsAction>, state$: StateObservable<RootState> ) {
     return action$.pipe(
         ofType( ProductsActionType.FETCH_PRODUCTS ),
-        mergeMap( () => fetchProducts().pipe(
+        mergeMap( ( action ) => fetchProducts( action.payload ).pipe(
                 map( response => fetchProductsSuccess( response ) ),
                 catchError( ( error ) => of( fetchProductsFail( error ) ) ),
             ),
@@ -16,6 +16,6 @@ function fetchProductsEpic( action$: Observable<FetchProductsAction>, state$: St
     );
 }
 
-export const rootEpic = combineEpics(
+export const productsEpic = combineEpics(
     fetchProductsEpic
 );

@@ -1,11 +1,10 @@
-import { FetchProductsResponse } from "services/_fetchProducts";
+import { AcceptedParamsTypes, Dictionary } from "utils/httpUtils";
 
 export interface ProductsState {
-    data: any,
+    data: ProductsData;
     isLoading: boolean;
     error: boolean;
-    pageNumber: number | null;
-    limit: number | null;
+    searchParams: Dictionary<AcceptedParamsTypes>;
 }
 
 export interface Product {
@@ -27,16 +26,44 @@ export interface ProductsResponse {
     previous: string;
 }
 
-export interface FetchProductsParams {
-    page: number;
-    limit: number;
+export interface ProductsData {
+    items?: Array<ProductsItem>;
+    meta?: ProductsMeta;
+    links?: ProductsLinks;
+}
+
+export interface ProductsItem {
+    id: number;
+    name: string;
+    description: string;
+    rating: number;
+    image: string;
+    promo: boolean;
+    active: boolean;
+}
+
+export interface ProductsMeta {
+    totalItems: number;
+    itemsCount: number;
+    itemsPerPage: string;
+    totalPages: number;
+    currentPage: string;
+}
+
+export interface ProductsLinks {
+    first: string;
+    previous: string;
+    next: string;
+    last: string;
 }
 
 export const productsInitState: ProductsState = {
-    data: [],
+    data: {},
     isLoading: false,
     error: false,
-    pageNumber: null,
-    limit: null,
+    searchParams: {
+        page: 1,
+        limit: 12,
+    },
 }
 

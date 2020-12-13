@@ -51,6 +51,7 @@
     "react-scripts": "3.4.3",
     "react-test-renderer": "16.13.1",
     "redux-observable": "^1.2.0",
+    "reselect": "^4.0.0",
     "rxjs": "^6.6.3",
     "typescript": "3.9.7"
   },

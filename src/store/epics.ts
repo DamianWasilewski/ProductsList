@@ -1,21 +1,8 @@
-import { combineEpics, ofType, StateObservable } from "redux-observable";
-import { Observable, of } from "rxjs";
-import { catchError, map, mergeMap } from "rxjs/operators";
-import { fetchProductsSuccess, fetchProductsFail, FetchProductsAction, ProductsActionType } from "./actions";
-import { RootState } from "./state";
-import { fetchProducts } from "../services";
-
-function fetchProductsEpic( action$: Observable<FetchProductsAction>, state$: StateObservable<RootState> ) {
-    return action$.pipe(
-        ofType( ProductsActionType.FETCH_PRODUCTS ),
-        mergeMap( () => fetchProducts().pipe(
-                map( response => fetchProductsSuccess( response ) ),
-                catchError( ( error ) => of( fetchProductsFail( error ) ) ),
-            ),
-        ),
-    );
-}
+import { combineEpics } from "redux-observable";
+import { authEpic } from "./auth/epics";
+import { productsEpic } from "./products/epics";
 
 export const rootEpic = combineEpics(
-    fetchProductsEpic
+    authEpic,
+    productsEpic
 );

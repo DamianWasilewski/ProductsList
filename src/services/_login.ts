@@ -13,16 +13,16 @@ import { map } from "rxjs/operators";
 import { AjaxError, AjaxResponse } from "rxjs/ajax";
 import { ProductsResponse } from "../store";
 
-export interface FetchProductsResponse extends ServiceResponse<ProductsResponse> {}
+export interface LoginResponse extends ServiceResponse<ProductsResponse> {}
 
-export function _fetchProducts( params: Dictionary<AcceptedParamsTypes>  ):
-    Observable<FetchProductsResponse> {
+export function _login( params: Dictionary<AcceptedParamsTypes>  ):
+    Observable<LoginResponse> {
 
-    const url = getUrl( '/product', params );
+    const url = getUrl( '/user/login' );
     const request = createRequest(
             url,
-            HttpMethod.GET,
-            undefined,
+            HttpMethod.POST,
+            params,
             undefined,
             undefined,
             undefined,
@@ -31,7 +31,7 @@ export function _fetchProducts( params: Dictionary<AcceptedParamsTypes>  ):
     return executeRequest( request )
         .pipe (
             map( ( response: AjaxResponse | AjaxError ) =>
-                createServiceSuccessResponse<ProductsResponse, FetchProductsResponse >( response, request )
+                createServiceSuccessResponse<ProductsResponse, LoginResponse >( response, request )
             )
         );
 }

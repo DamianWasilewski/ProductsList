@@ -25,6 +25,10 @@ export interface ReadonlyDictionary<T = any> {
     readonly [ key: string ]: Readonly<T>;
 }
 
+export interface Dictionary<T = any> {
+    [ key: string ]: Readonly<T>;
+}
+
 export interface ServiceMetaData {
     readonly contentType: string | null;
     readonly status: number;
@@ -150,3 +154,47 @@ export function createServiceFailedResponse(
         error: true,
     };
 }
+
+export function getUrl( path: string, queryParams?: Dictionary<AcceptedParamsTypes> ): string {
+    const url = `https://join-tsh-api-staging.herokuapp.com${ path }`;
+    return queryParams ? url + getUrlQueryString( queryParams ) : url;
+}
+
+export function getUrlQueryString<TParams>( parameters: Dictionary<AcceptedParamsTypes> ): string {
+
+    if ( typeof parameters === "undefined" || Object.keys( parameters ).length <= 0 ) {
+        return "";
+    }
+    const query: string[] = [];
+    for ( const key in parameters ) {
+        if ( parameters[ key ] === undefined ) {
+            continue;
+        }
+
+        const value = parameters[ key ];
+        if ( Array.isArray( value ) ) {
+            query.push( `${ key }=${ encodeURIComponent( value.join( "," ) ) }` );
+        } else if ( value instanceof Date ) {
+            query.push( `${ key }=${ value.toJSON() }` );
+        } else if ( typeof value === "object" ) {
+            const objValue = value as Dictionary;
+            for ( const k in objValue ) {
+                if ( objValue[ k ] === undefined ) {
+                    continue;
+                }
+                query.push( `${ key }[${ k }]=${ encodeURIComponent( objValue[ k ].toString() ) }` );
+            }
+        } else {
+            query.push( `${ key }=${ encodeURIComponent( value!.toString() ) }` );
+        }
+    }
+
+    if ( query.length <= 0 ) {
+        return "";
+    }
+
+    return "?" + query.join( "&" );
+}
+
+export type AcceptedParamsTypes = Date | string | number | boolean | string[] | ReadonlyArray<string> | number[] | ReadonlyArray<number> | boolean[] | ReadonlyArray<boolean>
+    | Dictionary<string | number | boolean | string[] | number[] | boolean[]> | undefined;

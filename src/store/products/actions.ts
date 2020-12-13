@@ -1,6 +1,6 @@
 import { BaseAction } from '../../utils/reduxUtils';
 import { FetchProductsResponse } from 'services/_fetchProducts';
-import { ServiceResponse, ServiceResponseError } from 'utils/httpUtils';
+import { AcceptedParamsTypes, Dictionary, ServiceResponse, ServiceResponseError } from 'utils/httpUtils';
 
 export enum ProductsActionType {
     FETCH_PRODUCTS = "FETCH_PRODUCTS",
@@ -8,9 +8,12 @@ export enum ProductsActionType {
     FETCH_PRODUCTS_FAIL = "FETCH_PRODUCTS_FAIL",
 
     SET_PAGE_NUMBER = "SET_PAGE_NUMBER",
+    SET_PRODUCTS_PER_PAGE = "SET_PRODUCTS_PER_PAGE",
+    SET_ACTIVE_FILTER = "SET_ACTIVE_FILTER",
+    SET_PROMO_FILTER = "SET_PROMO_FILTER", 
 }
 
-export type FetchProductsAction = BaseAction<ProductsActionType.FETCH_PRODUCTS>;
+export type FetchProductsAction = BaseAction<ProductsActionType.FETCH_PRODUCTS, Dictionary<AcceptedParamsTypes> >;
 
 export type FetchProductsSuccessAction = BaseAction<ProductsActionType.FETCH_PRODUCTS_SUCCESS, FetchProductsResponse>;
 
@@ -18,9 +21,16 @@ export type FetchProductsFailAction = BaseAction<ProductsActionType.FETCH_PRODUC
 
 export type SetPageNumberAction = BaseAction<ProductsActionType.SET_PAGE_NUMBER, number>;
 
-export function fetchProducts() {
+export type SetProductsPerPageAction = BaseAction<ProductsActionType.SET_PRODUCTS_PER_PAGE, number>;
+
+export type SetActiveFilterAction = BaseAction<ProductsActionType.SET_ACTIVE_FILTER, boolean>;
+
+export type SetPromoFilterAction = BaseAction<ProductsActionType.SET_PROMO_FILTER, boolean>;
+
+export function fetchProducts( params: Dictionary<AcceptedParamsTypes>  ) {
     return {
-        type: ProductsActionType.FETCH_PRODUCTS
+        type: ProductsActionType.FETCH_PRODUCTS,
+        payload: params
     };
 }
 
@@ -38,10 +48,31 @@ export function fetchProductsFail( error: any ) {
     }
 }
 
-export function setPageNumber( number: any ) {
+export function setPageNumber( pageNumber: number ) {
     return {
         type: ProductsActionType.SET_PAGE_NUMBER,
-        payload: number
+        payload: pageNumber
+    }
+}
+
+export function setProductsPerPage( productsPerPage: number ) {
+    return {
+        type: ProductsActionType.SET_PRODUCTS_PER_PAGE,
+        payload: productsPerPage
+    }
+}
+
+export function setActiveFilter( active: boolean ) {
+    return {
+        type: ProductsActionType.SET_ACTIVE_FILTER,
+        payload: active
+    }
+}
+
+export function setPromoFilter( promo: boolean ) {
+    return {
+        type: ProductsActionType.SET_PROMO_FILTER,
+        payload: promo
     }
 }
 
@@ -49,3 +80,6 @@ export type ProductsActions = FetchProductsAction
     | FetchProductsSuccessAction
     | FetchProductsFailAction
     | SetPageNumberAction
+    | SetProductsPerPageAction
+    | SetActiveFilterAction
+    | SetPromoFilterAction

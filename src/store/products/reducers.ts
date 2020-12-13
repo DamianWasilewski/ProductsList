@@ -1,40 +1,8 @@
-import { FetchProductsAction, FetchProductsFailAction, FetchProductsSuccessAction, ProductsActions, ProductsActionType, SetPageNumberAction } from "./actions";
+import { ProductsActions, ProductsActionType } from "./actions";
 import { ProductsState, productsInitState } from "./state";
 
-function fetchProducts( state: ProductsState, action: FetchProductsAction ) {
-    return {
-        ...state,
-        isLoading: true,
-        error: false,
-    }
-}
-
-function fetchProductsSuccess( state: ProductsState, action: FetchProductsSuccessAction ) {
-    return {
-        ...state,
-        data: action.payload.data,
-        isLoading: false,
-        error: false,
-    }
-}
-
-function fetchProductsFail( state: ProductsState, action: FetchProductsFailAction ) {
-    return {
-        ...state,
-        data: [],
-        isLoading: false,
-        error: true,
-    }
-}
-
-function setPageNumber( state: ProductsState, action: SetPageNumberAction ) {
-    return {
-        ...state,
-        pageNumber: action.payload
-    }
-}
-
-export const productsReducer = ( state: ProductsState = productsInitState, action: ProductsActions ) => {
+export const productsReducer = ( state: ProductsState = productsInitState, action: ProductsActions ): ProductsState => {
+    const { searchParams } = state;
     switch ( action.type ) {
         case ProductsActionType.FETCH_PRODUCTS:
             return {
@@ -50,16 +18,44 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
         case ProductsActionType.FETCH_PRODUCTS_FAIL:
             return {
                 ...state,
-                data: [],
+                data: {},
                 isLoading: false,
                 error: true,
             }
         case ProductsActionType.SET_PAGE_NUMBER:
             return {
                 ...state,
-                pageNumber: action.payload
+                searchParams: {
+                    ...state.searchParams,
+                    page: action.payload
+                }
+                
             }
-        
+        case ProductsActionType.SET_PRODUCTS_PER_PAGE:
+            return {
+                ...state,
+                searchParams: {
+                    ...searchParams,
+                    limit: action.payload
+                }
+            }
+        case ProductsActionType.SET_ACTIVE_FILTER:
+            return {
+                ...state,
+                searchParams: {
+                    ...searchParams,
+                    active: action.payload
+                }
+            }
+        case ProductsActionType.SET_PROMO_FILTER:
+            return {
+                ...state,
+                searchParams: {
+                    ...state.searchParams,
+                    active: action.payload
+                }
+            }
+
         default:
             return state;
     }
