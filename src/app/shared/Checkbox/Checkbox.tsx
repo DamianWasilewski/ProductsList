@@ -7,8 +7,8 @@ interface Props {
 }
 
 export interface SelectOptions {
-  value?: number | string;
-  label?: number | string;
+  value: number | string;
+  label: number | string;
 }
 
 export const Checkbox = ( { label, name, onChange }: Props ) => {
@@ -16,7 +16,7 @@ export const Checkbox = ( { label, name, onChange }: Props ) => {
 
     return (
         <div>
-            <input type="checkbox" name={ inputName } id={ label } value={ label } onChange={ onChange }/>
+            <input data-testid="filterCheckbox" type="checkbox" name={ inputName } id={ label } value={ label } onChange={ onChange }/>
             <label htmlFor={ label }>{ label }</label>
         </div>
     );

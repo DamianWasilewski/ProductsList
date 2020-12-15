@@ -15,7 +15,7 @@ export interface SelectOptions {
 
 function renderSingleOption( optionValues: Array<number | string> ) {
   const [ value, label ] = optionValues;
-  return <option key={ value } value={ value }>{ label }</option>;
+  return <option data-testid="ProductsPerPageSelect-option" key={ value } value={ value }>{ label }</option>;
 };
 
 function renderOptions( options: Array<number | string | SelectOptions> ): JSX.Element {

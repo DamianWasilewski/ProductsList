@@ -7,7 +7,7 @@ describe( 'products/selectors', () => {
     const mockedAuthState = mockAuthState();
     const mockedRootState = { auth: mockedAuthState, products: mockedProductsState };
 
-    it( 'should return search params', () => {
+    it( 'should return searchParams', () => {
         const expected = mockedProductsState.searchParams;
         const actual = getSearchParams( mockedRootState );
         expect( actual ).toEqual( expected );
@@ -24,4 +24,5 @@ describe( 'products/selectors', () => {
         const actual = getIsLoading( mockedRootState );
         expect( actual ).toEqual( expected );
     } );
+    
 } );

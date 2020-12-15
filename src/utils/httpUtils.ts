@@ -156,6 +156,7 @@ export function createServiceFailedResponse(
 }
 
 export function getUrl( path: string, queryParams?: Dictionary<AcceptedParamsTypes> ): string {
+    // TODO: Move url to config file later on
     const url = `https://join-tsh-api-staging.herokuapp.com${ path }`;
     return queryParams ? url + getUrlQueryString( queryParams ) : url;
 }

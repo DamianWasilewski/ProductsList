@@ -10,8 +10,8 @@ import {
 import { executeRequest } from "../http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { AjaxError, AjaxResponse } from "rxjs/ajax";
-import { ProductsData, ProductsResponse } from "../store";
+import { AjaxResponse } from "rxjs/ajax";
+import { ProductsData } from "../store";
 
 export interface FetchProductsResponse extends ServiceResponse<ProductsData> {}
 
