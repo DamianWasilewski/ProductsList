@@ -79,7 +79,7 @@ export function createRequest<TRequestData>(
     };
 }
 
-export function mapAjaxResponse<TMappedResponse>( response: AjaxResponse | AjaxError, isError?: boolean ): TMappedResponse {
+export function mapAjaxResponse<TMappedResponse>( response: AjaxResponse, isError?: boolean ): TMappedResponse {
     return response.response;
 }
 
@@ -101,11 +101,11 @@ export function mapMetaData( response: AjaxResponse | AjaxError, isError: boolea
     };
 }
 
-export type ResponseMapperDelegate = <TMappedResponse>( response: AjaxResponse | AjaxError, isError?: boolean ) => TMappedResponse;
-export type MetaDataMapperDelegate = ( response: AjaxResponse | AjaxError, isError?: boolean ) => ServiceMetaData;
+export type ResponseMapperDelegate = <TMappedResponse>( response: AjaxResponse, isError?: boolean ) => TMappedResponse;
+export type MetaDataMapperDelegate = ( response: AjaxResponse, isError?: boolean ) => ServiceMetaData;
 
 export function createServiceSuccessResponse<TMappedResponse, TServiceResponse extends ServiceResponse<TMappedResponse>>(
-    response: AjaxResponse | AjaxError,
+    response: AjaxResponse,
     request: ServiceRequest,
     responseMapper: ResponseMapperDelegate = mapAjaxResponse,
     metaDataMapper: MetaDataMapperDelegate = mapMetaData

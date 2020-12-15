@@ -8,7 +8,7 @@ export const defaultHeaders = {
     [ HttpHeaders.contentType ]: ContentTypes.applicationJson,
 };
 
-export function executeRequest<TRequestData = undefined>( request: ServiceRequest<TRequestData> ): Observable<AjaxResponse | AjaxError> {
+export function executeRequest<TRequestData = undefined>( request: ServiceRequest<TRequestData> ): Observable<AjaxResponse> {
 
     let headers: Record<string, string | undefined> = { ...defaultHeaders, ...request.headers };
 

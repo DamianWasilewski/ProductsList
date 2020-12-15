@@ -11,9 +11,9 @@ import { executeRequest } from "../http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { AjaxError, AjaxResponse } from "rxjs/ajax";
-import { ProductsResponse } from "../store";
+import { ProductsData, ProductsResponse } from "../store";
 
-export interface FetchProductsResponse extends ServiceResponse<ProductsResponse> {}
+export interface FetchProductsResponse extends ServiceResponse<ProductsData> {}
 
 export function _fetchProducts( params: Dictionary<AcceptedParamsTypes>  ):
     Observable<FetchProductsResponse> {
@@ -30,8 +30,8 @@ export function _fetchProducts( params: Dictionary<AcceptedParamsTypes>  ):
 
     return executeRequest( request )
         .pipe (
-            map( ( response: AjaxResponse | AjaxError ) =>
-                createServiceSuccessResponse<ProductsResponse, FetchProductsResponse >( response, request )
+            map( ( response: AjaxResponse ) =>
+                createServiceSuccessResponse<ProductsData, FetchProductsResponse >( response, request )
             )
         );
 }

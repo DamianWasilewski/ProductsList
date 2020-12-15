@@ -1,7 +1,7 @@
-import { ProductsActions, ProductsActionType } from "./actions";
+import { ProductsActionType } from "./actions";
 import { ProductsState, productsInitState } from "./state";
 
-export const productsReducer = ( state: ProductsState = productsInitState, action: ProductsActions ): ProductsState => {
+export const productsReducer = ( state: ProductsState = productsInitState, action: any ): ProductsState => {
     const { searchParams } = state;
     switch ( action.type ) {
         case ProductsActionType.FETCH_PRODUCTS:

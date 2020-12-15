@@ -75,11 +75,3 @@ export function setPromoFilter( promo: boolean ) {
         payload: promo
     }
 }
-
-export type ProductsActions = FetchProductsAction
-    | FetchProductsSuccessAction
-    | FetchProductsFailAction
-    | SetPageNumberAction
-    | SetProductsPerPageAction
-    | SetActiveFilterAction
-    | SetPromoFilterAction

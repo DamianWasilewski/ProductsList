@@ -30,7 +30,7 @@ export function _login( params: Dictionary<AcceptedParamsTypes>  ):
 
     return executeRequest( request )
         .pipe (
-            map( ( response: AjaxResponse | AjaxError ) =>
+            map( ( response: AjaxResponse ) =>
                 createServiceSuccessResponse<ProductsResponse, LoginResponse >( response, request )
             )
         );

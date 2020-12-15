@@ -32,7 +32,3 @@ export function loginFail( error: any ) {
         payload: error
     }
 }
-
-export type AuthActions = LoginAction
-    | LoginSuccessAction
-    | LoginFailAction

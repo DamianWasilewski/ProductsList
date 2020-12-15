@@ -19,3 +19,8 @@ export const getProductsList = createSelector<RootState, ProductsState, Array<Pr
     getProductsState,
     productsState => productsState.data.items
 );
+
+export const getIsLoading = createSelector<RootState, ProductsState, boolean>(
+    getProductsState,
+    productsState => productsState.isLoading
+);
