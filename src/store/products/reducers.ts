@@ -26,7 +26,7 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
             return {
                 ...state,
                 searchParams: {
-                    ...state.searchParams,
+                    ...searchParams,
                     page: action.payload
                 }
                 
@@ -51,8 +51,18 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
             return {
                 ...state,
                 searchParams: {
-                    ...state.searchParams,
-                    active: action.payload
+                    ...searchParams,
+                    promo: action.payload
+                }
+            }
+        case ProductsActionType.SET_FILTERS:
+            const [ name, isChecked ] = Object.entries( action.payload )[0];
+
+            return {
+                ...state,
+                searchParams: {
+                    ...searchParams,
+                    [name as any]: isChecked, 
                 }
             }
 

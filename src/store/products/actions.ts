@@ -10,7 +10,8 @@ export enum ProductsActionType {
     SET_PAGE_NUMBER = "SET_PAGE_NUMBER",
     SET_PRODUCTS_PER_PAGE = "SET_PRODUCTS_PER_PAGE",
     SET_ACTIVE_FILTER = "SET_ACTIVE_FILTER",
-    SET_PROMO_FILTER = "SET_PROMO_FILTER", 
+    SET_PROMO_FILTER = "SET_PROMO_FILTER",
+    SET_FILTERS = "SET_FILTERS",
 }
 
 export type FetchProductsAction = BaseAction<ProductsActionType.FETCH_PRODUCTS, Dictionary<AcceptedParamsTypes> >;
@@ -27,6 +28,8 @@ export type SetActiveFilterAction = BaseAction<ProductsActionType.SET_ACTIVE_FIL
 
 export type SetPromoFilterAction = BaseAction<ProductsActionType.SET_PROMO_FILTER, boolean>;
 
+export type SetFiltersAction = BaseAction<ProductsActionType.SET_FILTERS, string>;
+
 export function fetchProducts( params: Dictionary<AcceptedParamsTypes>  ) {
     return {
         type: ProductsActionType.FETCH_PRODUCTS,
@@ -42,6 +45,7 @@ export function fetchProductsSuccess( data: FetchProductsResponse ) {
 }
 
 export function fetchProductsFail( error: any ) {
+    console.log( error );
     return {
         type: ProductsActionType.FETCH_PRODUCTS_FAIL,
         payload: error
@@ -66,6 +70,13 @@ export function setActiveFilter( active: boolean ) {
     return {
         type: ProductsActionType.SET_ACTIVE_FILTER,
         payload: active
+    }
+}
+
+export function setFilters( filters: any ) {
+    return {
+        type: ProductsActionType.SET_FILTERS,
+        payload: filters
     }
 }
 

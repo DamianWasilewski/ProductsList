@@ -21,4 +21,8 @@ describe( "products/reducers", () => {
 
         expect( actual ).toEqual( expected );
     } );
+
+    it( 'should return updated and correct state(ProductsActionTypes.FETCH_PRODUCTS_FAILED)', () => {
+        
+    } )
 } );
