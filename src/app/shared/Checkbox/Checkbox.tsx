@@ -6,11 +6,6 @@ interface Props {
   readonly onChange?: ( event: React.ChangeEvent<HTMLInputElement> ) => void;
 }
 
-export interface SelectOptions {
-  value: number | string;
-  label: number | string;
-}
-
 export const Checkbox = ( { label, name, onChange }: Props ) => {
     const inputName = name ? name : label;
 

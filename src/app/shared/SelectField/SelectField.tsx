@@ -9,8 +9,8 @@ interface Props {
 }
 
 export interface SelectOptions {
-  value?: number | string;
-  label?: number | string;
+  value: number | string;
+  label: number | string;
 }
 
 function renderSingleOption( optionValues: Array<number | string> ) {

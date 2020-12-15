@@ -7,6 +7,7 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
         case ProductsActionType.FETCH_PRODUCTS:
             return {
                 ...state,
+                isLoading: true,
             };
         case ProductsActionType.FETCH_PRODUCTS_SUCCESS:
             return {

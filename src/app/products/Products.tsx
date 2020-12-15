@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
 import { fetchProducts, setFilters, setProductsPerPage } from 'store';
 import { getProductsList, getSearchParams } from 'store/selectors';
+import config from "../../config";
 
 interface Props {
 
@@ -15,13 +16,6 @@ export const Products = () => {
   const dispatch = useDispatch();
   const searchParams = useSelector( getSearchParams );
   const products = useSelector( getProductsList );
-  // TODO: Make a new variable in config that will store array of checkbox filter in order to map them dynamically
-  // TODO: Move selectOptions to config file later on
-  const selectOptions = [
-    { value: 12, label: 12 },
-    { value: 24, label: 24 },
-    { value: 36, label: 36 },
-  ];
 
   useEffect( () => {
       dispatch( fetchProducts( searchParams ) )
@@ -34,14 +28,19 @@ export const Products = () => {
   const onCheckboxChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
     dispatch( setFilters( { [event.target.name]: event.target.checked } ) )
   }
+
+  const renderCheckboxes = () => {
+    return config.checkboxFilters.map( filter => {
+      return <Checkbox key={ filter } label={ filter } onChange={ onCheckboxChange } />
+    })
+  }
  
   return (
     <>
       <h2>Products page</h2>
       <Link to={AppRoute.login}> Login </Link>
-      <SelectField selectOptions={ selectOptions } id={ "LimitsPerPage" } name={ "LimitPerPageSelect" } onChange={ onChange } />
-      <Checkbox label={ 'promo' } onChange={ onCheckboxChange } />
-      <Checkbox label={ 'active' } onChange={ onCheckboxChange } />
+      <SelectField selectOptions={ config.productsPerPageOptions } id={ "LimitsPerPage" } name={ "LimitPerPageSelect" } onChange={ onChange } />
+      { renderCheckboxes() }
       <button onClick={ () => console.log( products ) }>test</button>
     </>
   );
