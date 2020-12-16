@@ -4,7 +4,7 @@ import { render } from 'tests';
 
 import { Checkbox } from './Checkbox';
 
-describe( 'SelectField', () => {
+describe( 'Checkbox', () => {
     
     it( 'should render checkbox component', async () => {
         const wrapper = render( <Checkbox label={ "test" } /> );
