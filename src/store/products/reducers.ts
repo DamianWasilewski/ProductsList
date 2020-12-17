@@ -51,11 +51,22 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                 }
             }
         case ProductsActionType.SET_SEARCH_PHRASE:
+
             return {
                 ...state,
                 searchParams: {
                     ...searchParams,
                     searchPhrase: action.payload
+                }
+            }
+
+        case ProductsActionType.REMOVE_SEARCH_PHRASE:
+
+            return {
+                ...state,
+                searchParams: {
+                    ...searchParams,
+                    searchPhrase: "",
                 }
             }
 

@@ -11,6 +11,7 @@ export enum ProductsActionType {
     SET_PRODUCTS_PER_PAGE = "SET_PRODUCTS_PER_PAGE",
     SET_FILTERS = "SET_FILTERS",
     SET_SEARCH_PHRASE = "SET_SEARCH_PHRASE",
+    REMOVE_SEARCH_PHRASE = "REMOVE_SEARCH_PHRASE",
 }
 
 export type FetchProductsAction = BaseAction<ProductsActionType.FETCH_PRODUCTS, Dictionary<AcceptedParamsTypes> >;
@@ -26,6 +27,8 @@ export type SetProductsPerPageAction = BaseAction<ProductsActionType.SET_PRODUCT
 export type SetFiltersAction = BaseAction<ProductsActionType.SET_FILTERS, string>;
 
 export type SetSearchPhrase = BaseAction<ProductsActionType.SET_SEARCH_PHRASE, string>;
+
+export type RemoveSearchPhrase = BaseAction<ProductsActionType.REMOVE_SEARCH_PHRASE>;
 
 export function fetchProducts( params: Dictionary<AcceptedParamsTypes>  ) {
     return {
@@ -73,5 +76,11 @@ export function setSearchPhrase( searchPhrase: string ) {
     return {
         type: ProductsActionType.SET_SEARCH_PHRASE,
         payload: searchPhrase
+    };
+};
+
+export function removeSearchPhrase() {
+    return {
+        type: ProductsActionType.REMOVE_SEARCH_PHRASE,
     };
 };

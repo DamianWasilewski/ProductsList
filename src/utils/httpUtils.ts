@@ -168,7 +168,7 @@ export function getUrlQueryString<TParams>( parameters: Dictionary<AcceptedParam
     }
     const query: string[] = [];
     for ( const key in parameters ) {
-        if ( parameters[ key ] === undefined ) {
+        if ( parameters[ key ] === undefined || parameters[key] === "" ) {
             continue;
         }
 

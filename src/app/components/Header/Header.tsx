@@ -4,7 +4,7 @@ import { SearchField } from 'app/shared/SearchField';
 import config from 'config';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilters, setSearchPhrase as setReduxSearchPhrase } from 'store';
+import { removeSearchPhrase, setFilters, setSearchPhrase as setReduxSearchPhrase } from 'store';
 import { FiltersWrapper, StyledHeader } from './styled';
 
 
@@ -12,17 +12,24 @@ interface Props {
     areFiltersVisible?: boolean;
 }
 
-export const Header = ( { areFiltersVisible = false }: Props ) => {
+export const Header = ( { areFiltersVisible = true }: Props ) => {
 
     const dispatch = useDispatch();
     const [ searchPhrase, setSearchPhrase ] = useState( "" );
+    console.log( searchPhrase );
   
     const onCheckboxChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
       dispatch( setFilters( { [event.target.name]: event.target.checked } ) )
     }
+
+    const onNoValueAfterInputClear = () => {
+      setSearchPhrase( "" );
+      
+      return dispatch( removeSearchPhrase() );
+    }
   
     const onSearchInputChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
-      setSearchPhrase( event.target.value );
+      return event.target.value ? setSearchPhrase( event.target.value ) : onNoValueAfterInputClear();
     }
   
     const onSearchClickHandler = () => {
@@ -38,10 +45,11 @@ export const Header = ( { areFiltersVisible = false }: Props ) => {
     return (
         <StyledHeader>
             <Logo />
+          { areFiltersVisible ?
             <FiltersWrapper>
                 <SearchField label={ "searchField" } onChange={ onSearchInputChange } value={ searchPhrase } onClick={ onSearchClickHandler } />
                 { renderCheckboxes() }
-            </FiltersWrapper>
+            </FiltersWrapper> : null }
         </StyledHeader>
     );
 };

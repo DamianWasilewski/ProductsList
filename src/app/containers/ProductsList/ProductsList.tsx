@@ -22,15 +22,15 @@ export const ProductsList = () => {
     const renderProducts = () => {
         return products?.map( product => {
             return <Product key={ product.name } title={ product.name } description={ product.description } />
-        })
-    }
+        } );
+    };
   
     return (
         <ContentWrapper>
             <ProductsWrapper>
                 { renderProducts() }
             </ProductsWrapper>
-        <Pagination />
+            <Pagination />
         </ContentWrapper>
     );
 };

@@ -7,14 +7,14 @@ import { ThemeProvider } from 'styled-components';
 
 import { AppProvidersProps } from './AppProviders.types';
 
-export const AppProviders = ({ children }: AppProvidersProps) => {
+export const AppProviders = ( { children }: AppProvidersProps ) => {
     return (
-    <ThemeProvider theme={ theme } >
-        <Provider store={ store }>
-            <Router>
-                { children }
-            </Router>
-        </Provider> 
-    </ThemeProvider>    
+        <ThemeProvider theme={ theme }>
+            <Provider store={ store }>
+                <Router>
+                    { children }
+                </Router>
+            </Provider>
+        </ThemeProvider>
     );
 };
