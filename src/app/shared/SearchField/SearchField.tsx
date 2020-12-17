@@ -1,4 +1,5 @@
 import React from 'react';
+import { SearchFieldWrapper } from './styled';
 
 interface Props {
   readonly label: string;
@@ -12,10 +13,12 @@ export const SearchField = ( { label, name, value, onChange, onClick }: Props ) 
     const inputName = name ? name : label;
 
     return (
-        <div>
-            <label htmlFor={ label }>{ label }</label>
-            <input data-testid="searchField" type="text" name={ inputName } id={ label } value={ value } onChange={ onChange }/>
-            <button onClick={ onClick } >SEARCH</button>
-        </div>
+        <>
+            <SearchFieldWrapper>
+                <label htmlFor={ label }>{ label }</label>
+                <input data-testid="searchField" type="text" name={ inputName } id={ label } value={ value } onChange={ onChange }/>
+                <button onClick={ onClick }>SEARCH</button>
+            </SearchFieldWrapper>
+        </>
     );
 };
