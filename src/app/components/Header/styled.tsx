@@ -7,9 +7,17 @@ export const StyledHeader = styled.div`
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    background: white;
+    width: 100%;
 `;
 
 export const FiltersWrapper = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: column;
+    flex-basis: 90%;
+`;
+
+export const CheckboxesWrapper = styled.div`
+    display: flex;
 `;

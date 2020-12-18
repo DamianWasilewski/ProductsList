@@ -2,9 +2,9 @@ import React from 'react';
 import { Wrapper } from "./styled";
 
 interface Props {
-  readonly label: string;
-  readonly name?: string;
-  readonly onChange?: ( event: React.ChangeEvent<HTMLInputElement> ) => void;
+    readonly label: string;
+    readonly name?: string;
+    readonly onChange?: ( event: React.ChangeEvent<HTMLInputElement> ) => void;
 }
 
 export const Checkbox = ( { label, name, onChange }: Props ) => {

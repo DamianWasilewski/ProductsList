@@ -21,7 +21,14 @@ export const ProductsList = () => {
 
     const renderProducts = () => {
         return products?.map( product => {
-            return <Product key={ product.name } title={ product.name } description={ product.description } />
+            return ( 
+                <Product key={ product.name }
+                    title={ product.name }
+                    description={ product.description }
+                    rating={ product.rating }
+                    name={ product.name }
+                    imageUrl={ product.image } />
+            );
         } );
     };
   

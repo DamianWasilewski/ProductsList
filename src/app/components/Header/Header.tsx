@@ -5,7 +5,7 @@ import config from 'config';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeSearchPhrase, setFilters, setSearchPhrase as setReduxSearchPhrase } from 'store';
-import { FiltersWrapper, StyledHeader } from './styled';
+import { CheckboxesWrapper, FiltersWrapper, StyledHeader } from './styled';
 
 
 interface Props {
@@ -48,7 +48,9 @@ export const Header = ( { areFiltersVisible = true }: Props ) => {
           { areFiltersVisible ?
             <FiltersWrapper>
                 <SearchField label={ "searchField" } onChange={ onSearchInputChange } value={ searchPhrase } onClick={ onSearchClickHandler } />
-                { renderCheckboxes() }
+                <CheckboxesWrapper>    
+                  { renderCheckboxes() }
+                </CheckboxesWrapper>  
             </FiltersWrapper> : null }
         </StyledHeader>
     );

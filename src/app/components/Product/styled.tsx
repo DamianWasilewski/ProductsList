@@ -5,4 +5,8 @@ export const ContentWrapper = styled.div`
     flex-flow: column wrap;
     flex-basis: 80%;
     align-items: center;
+
+    img {
+        width: 100%;
+    }
 `;
