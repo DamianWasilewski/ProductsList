@@ -12,5 +12,6 @@ export const CtaButton = ( { text, isDisabled, onClick }: Props ) => {
     return (
         <StyledCtaButton onClick={ onClick }>
             <div>{ text }</div>
-        </StyledCtaButton>);
+        </StyledCtaButton>
+    );
 };

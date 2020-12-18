@@ -18,7 +18,7 @@ export const Product = ( { title, name, imageUrl, description, rating, isDisable
 
     return (
         <ContentWrapper>
-            <img src={ imageUrl } alt={ `${ name }-product-photo` } />
+            <img src={ imageUrl } alt={ `${ name }-product` } />
             <span>{ title }</span>
             <span>{ description }</span>
             <Rating rating={ rating } />

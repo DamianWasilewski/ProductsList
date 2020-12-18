@@ -1,3 +1,4 @@
+import { Wrapper } from "app/shared/Checkbox/styled";
 import { styled } from "theme";
 
 export const StyledHeader = styled.div`
@@ -9,15 +10,22 @@ export const StyledHeader = styled.div`
     align-items: center;
     background: white;
     width: 100%;
+    height: 25rem;
+    padding: 0 2.4rem;
+    box-sizing: border-box;
 `;
 
 export const FiltersWrapper = styled.div`
     display: flex;
-    align-items: center;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 100%;
 `;
 
 export const CheckboxesWrapper = styled.div`
     display: flex;
+    margin-top: 2.4rem;
+
+    ${ Wrapper }:nth-child(n+2) {
+        margin-left: 3.2rem;
+    }
 `;
