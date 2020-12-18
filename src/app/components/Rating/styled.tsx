@@ -6,6 +6,8 @@ export const ContentWrapper = styled.div<RatingProps>`
 
     svg.filledStar {
         path {
+            width: 1.3rem;
+            height: 1.2rem;
             fill: ${ props => props.theme.colors.darkYellow };
         }
     }

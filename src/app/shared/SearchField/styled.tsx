@@ -10,7 +10,6 @@ export const SearchFieldWrapper = styled.div`
     }
 
     input {
-        width: 100%;
         height: 4.8rem;
         border-radius: 0.8rem;
         border: ${ props => `0.1rem solid ${ props.theme.colors.lightGrey }` };
@@ -21,19 +20,39 @@ export const SearchFieldWrapper = styled.div`
         }
     }
 
-    button {
-        appearance: none;
-        background: none;
-        border: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        outline: none;
-        padding: 0;
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
+        width: 39rem;
+    }
 
-        svg {
-            padding-right: 1.5rem;
-        }
+`;
+
+export const SearchFieldInput = styled.input`
+    width: 100%;
+    height: 4.8rem;
+    border-radius: 0.8rem;
+    border: ${ props => `0.1rem solid ${ props.theme.colors.lightGrey }` };
+    padding: 0;
+
+    &::placeholder {
+        font-family: 'Nunito', sans-serif;
+        padding-left: 1.5rem;
+        color: ${ props => props.theme.colors.black };
+        font-weight: bold;
+    }
+`;
+
+export const SearchButton = styled.button`
+    appearance: none;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    outline: none;
+    padding: 0;
+
+    svg {
+        padding-right: 1.5rem;
     }
 `;

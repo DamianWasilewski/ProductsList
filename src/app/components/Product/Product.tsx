@@ -1,7 +1,7 @@
 import { CtaButton } from 'app/shared/CtaButton';
 import React from 'react';
 import { Rating } from '../Rating';
-import { ContentWrapper } from "./styled";
+import { ContentWrapper, Name, Description, DetailedContent } from "./styled";
 
 interface Props {
     readonly title: string;
@@ -19,10 +19,12 @@ export const Product = ( { title, name, imageUrl, description, rating, isDisable
     return (
         <ContentWrapper>
             <img src={ imageUrl } alt={ `${ name }-product` } />
-            <span>{ title }</span>
-            <span>{ description }</span>
-            <Rating rating={ rating } />
-            <CtaButton text={ buttonText } isDisabled={ isDisabled } />
+            <DetailedContent>
+                <Name>{ title }</Name>
+                <Description>{ description }</Description>
+                <Rating rating={ rating } />
+                <CtaButton text={ buttonText } isDisabled={ isDisabled } />
+            </DetailedContent>
         </ContentWrapper>
     );
 };

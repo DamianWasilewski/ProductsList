@@ -13,12 +13,23 @@ export const StyledHeader = styled.div`
     height: 25rem;
     padding: 0 2.4rem;
     box-sizing: border-box;
+
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
+        padding: 0;
+        justify-content: space-around;
+    }
 `;
 
 export const FiltersWrapper = styled.div`
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
+
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
+        flex-basis: 60%;
+        flex-direction: row;
+        order: 1;
+    }
 `;
 
 export const CheckboxesWrapper = styled.div`
@@ -27,5 +38,10 @@ export const CheckboxesWrapper = styled.div`
 
     ${ Wrapper }:nth-child(n+2) {
         margin-left: 3.2rem;
+    }
+
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
+        margin-top: 0;
+        margin-left: 2.4rem;
     }
 `;

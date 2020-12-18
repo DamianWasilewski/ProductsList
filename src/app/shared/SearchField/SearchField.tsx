@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchFieldWrapper } from './styled';
+import { SearchButton, SearchFieldWrapper, SearchFieldInput } from './styled';
 import { ReactComponent as SearchIconSvg } from "../../../assets/images/searchIcon.svg";
 
 interface Props {
@@ -17,8 +17,8 @@ export const SearchField = ( { label, name, value, onChange, onClick }: Props ) 
         <>
             <SearchFieldWrapper>
                 <label htmlFor={ label }>{ label }</label>
-                <input data-testid="searchField" type="text" placeholder={ "Search" } name={ inputName } id={ label } value={ value } onChange={ onChange }/>
-                <button onClick={ onClick }><SearchIconSvg /></button>
+                <SearchFieldInput data-testid="searchField" type="text" placeholder={ "Search" } name={ inputName } id={ label } value={ value } onChange={ onChange }/>
+                <SearchButton onClick={ onClick }><SearchIconSvg /></SearchButton>
             </SearchFieldWrapper>
         </>
     );
