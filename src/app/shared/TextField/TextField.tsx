@@ -2,10 +2,9 @@ import React from 'react';
 import { DefaultInputProps } from '../types';
 import { TextFieldWrapper, TextFieldInput } from './styled';
 
-interface TextFieldProps extends DefaultInputProps {
+interface TextFieldProps extends DefaultInputProps, StyledTextFieldProps {
     readonly testId?: string;
     readonly type?: string;
-    readonly isLabelVisible?: boolean;
 }
 
 export interface StyledTextFieldProps {

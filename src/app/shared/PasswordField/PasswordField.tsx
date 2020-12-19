@@ -6,7 +6,5 @@ interface Props extends DefaultInputProps {}
 
 export const PasswordField = ( { label, placeholder }: Props ) => {
   
-    return (
-        <TextField label={ label } placeholder={ placeholder } type={ "password" } />
-    );
+    return <TextField label={ label } placeholder={ placeholder } type={ "password" } />;
 };

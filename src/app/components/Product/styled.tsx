@@ -26,9 +26,10 @@ export const ContentWrapper = styled.div`
         flex-basis: 30%;
     }
 
-    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptopL ) } {\
-        width: 28.8rem;
-        flex-basis: auto;
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptopL ) } {
+        flex-basis: 23%;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 `;
 
