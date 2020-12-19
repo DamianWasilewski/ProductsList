@@ -11,13 +11,13 @@ import { CheckboxesWrapper, FiltersWrapper, StyledHeader } from './styled';
 
 interface Props {
     areFiltersVisible?: boolean;
+    isLoginInfoVisible?: boolean;
 }
 
-export const Header = ( { areFiltersVisible = true }: Props ) => {
+export const Header = ( { areFiltersVisible = true, isLoginInfoVisible = true }: Props ) => {
 
     const dispatch = useDispatch();
     const [ searchPhrase, setSearchPhrase ] = useState( "" );
-    console.log( searchPhrase );
   
     const onCheckboxChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
       dispatch( setFilters( { [event.target.name]: event.target.checked } ) )
@@ -46,14 +46,14 @@ export const Header = ( { areFiltersVisible = true }: Props ) => {
     return (
         <StyledHeader>
             <Logo />
-            <LoginButton />
-          { areFiltersVisible ?
-            <FiltersWrapper>
-                <SearchField label={ "searchField" } onChange={ onSearchInputChange } value={ searchPhrase } onClick={ onSearchClickHandler } />
-                <CheckboxesWrapper>    
-                  { renderCheckboxes() }
-                </CheckboxesWrapper>  
-            </FiltersWrapper> : null }
+            { isLoginInfoVisible ? <LoginButton /> : <div>{ "" }</div> }
+            { areFiltersVisible ?
+              <FiltersWrapper>
+                  <SearchField label={ "searchField" } onChange={ onSearchInputChange } value={ searchPhrase } onClick={ onSearchClickHandler } />
+                  <CheckboxesWrapper>    
+                    { renderCheckboxes() }
+                  </CheckboxesWrapper>  
+              </FiltersWrapper> : null }
         </StyledHeader>
     );
 };

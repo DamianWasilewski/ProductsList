@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: 'Nunito', sans-serif;
+        margin: 0;
     }
 `;
 

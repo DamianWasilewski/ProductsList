@@ -26,21 +26,6 @@ export const SearchFieldWrapper = styled.div`
 
 `;
 
-export const SearchFieldInput = styled.input`
-    width: 100%;
-    height: 4.8rem;
-    border-radius: 0.8rem;
-    border: ${ props => `0.1rem solid ${ props.theme.colors.lightGrey }` };
-    padding: 0;
-
-    &::placeholder {
-        font-family: 'Nunito', sans-serif;
-        padding-left: 1.5rem;
-        color: ${ props => props.theme.colors.black };
-        font-weight: bold;
-    }
-`;
-
 export const SearchButton = styled.button`
     appearance: none;
     background: none;
