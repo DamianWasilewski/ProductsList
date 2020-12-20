@@ -17,11 +17,9 @@ export const ProductsWrapper = styled.div`
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
         padding: 0 1.2rem;
-        justify-content: space-evenly;
     }
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptopL ) } {
         padding: 0 10.6rem;
-        justify-content: space-evenly;
     }
 `;

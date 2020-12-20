@@ -1,29 +1,39 @@
 import { CtaButton } from 'app/shared/CtaButton';
+import { ImageWrapper } from 'app/shared/imageWrapper';
+import { InfoLabel } from 'app/shared/InfoLabel';
 import React from 'react';
 import { Rating } from '../Rating';
 import { ContentWrapper, Name, Description, DetailedContent } from "./styled";
 
 interface Props {
     readonly title: string;
-    readonly name: string;
+    readonly name?: string;
     readonly imageUrl: string;
     readonly description: string;
     readonly rating: number;
     readonly isDisabled?: boolean;
+    readonly promo: boolean;
+    readonly onClick: ( title: string, description: string, imgUrl: string, promo: boolean ) => void;
 }
 
-export const Product = ( { title, name, imageUrl, description, rating, isDisabled = false }: Props ) => {
+export const Product = ( { title, imageUrl, description, rating, isDisabled, promo, onClick }: Props ) => {
 
     const buttonText = isDisabled ? "Unavaliable" : "Show details";
 
+    const onClickHandler = () => {
+        onClick( title, description, imageUrl, promo );
+    }
+
     return (
-        <ContentWrapper>
-            <img src={ imageUrl } alt={ `${ name }-product` } />
+        <ContentWrapper isDisabled={ isDisabled }>
+            <ImageWrapper imgSrc={ imageUrl } isDisabled={ isDisabled }>
+                { promo ? <InfoLabel text={ "promo" } /> : null }
+            </ImageWrapper>
             <DetailedContent>
                 <Name>{ title }</Name>
                 <Description>{ description }</Description>
                 <Rating rating={ rating } />
-                <CtaButton text={ buttonText } isDisabled={ isDisabled } />
+                <CtaButton onClick={ onClickHandler } text={ buttonText } isDisabled={ isDisabled } />
             </DetailedContent>
         </ContentWrapper>
     );

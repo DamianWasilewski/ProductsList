@@ -4,18 +4,14 @@ import { HintLink } from 'app/shared/HintLink';
 import { PasswordField } from 'app/shared/PasswordField';
 import { TextField } from 'app/shared/TextField';
 import React from 'react';
-import { ContentWrapper, FormAndHintWrapper, Spacer, StyledPageHeading, StyledForm, StyledWrapper, ImageWrapper } from './styled';
+import { ContentWrapper, FormAndHintWrapper, LoginImageWrapper, Spacer, StyledPageHeading, StyledForm, StyledWrapper } from './styled';
 import loginImage from 'assets/images/loginImage.png';
-
-export interface StyledLoginProps {
-    imageSrc: string;
-}
 
 export const Login = () => {
 
     return (
         <StyledWrapper>
-                <ImageWrapper imageSrc={ loginImage } />
+                <LoginImageWrapper imgSrc={ loginImage } />
                 <ContentWrapper>
                     <Header areFiltersVisible={ false } isLoginInfoVisible={ false } />
                     <FormAndHintWrapper>

@@ -1,18 +1,18 @@
 import { StyledHeader } from "app/components/Header/styled";
 import { StyledCtaButton } from "app/shared/CtaButton/styled";
 import { StyledHintLink } from "app/shared/HintLink/styled";
+import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
 import { TextFieldInput, TextFieldWrapper } from "app/shared/TextField/styled";
 import { styled } from "theme";
-import { StyledLoginProps } from "./Login";
 
-export const ImageWrapper = styled.div<StyledLoginProps>`
+export const LoginImageWrapper = styled( StyledImageWrapper )`
     flex-basis: 40%;
 
     img {
         width: 100%;
     }
 
-    background: no-repeat url( ${ props => props.imageSrc } ) center;
+    background: no-repeat url( ${ props => props.imgSrc } ) center;
     background-size: cover;
 `;
 
@@ -32,7 +32,7 @@ export const StyledWrapper = styled.div`
         margin: 1.6rem 0;
     }
 
-    ${ ImageWrapper } {
+    ${ LoginImageWrapper } {
         display: none;
     }
 
@@ -49,7 +49,7 @@ export const StyledWrapper = styled.div`
         overflow-y: hidden;
         padding: 0;
 
-        ${ ImageWrapper } {
+        ${ LoginImageWrapper } {
             display: block;
         }
     }

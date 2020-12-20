@@ -1,8 +1,11 @@
+import { StyledCtaButttonProps } from "app/shared/CtaButton";
 import { StyledCtaButton } from "app/shared/CtaButton/styled";
+import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
+import { StyledInfoLabel } from "app/shared/InfoLabel/styled";
 import { styled } from "theme";
 import { ContentWrapper as RatingContentWrapper } from "../Rating/styled";
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<StyledCtaButttonProps>`
     margin-top: 2.4rem;
     display: flex;
     flex-flow: column;
@@ -12,10 +15,17 @@ export const ContentWrapper = styled.div`
     font-weight: 600;
     height: 40rem;
 
-    img {
+    ${ StyledImageWrapper } {
+        position: relative;
         width: 100%;
-        height: 40%;
+        flex-basis: 40%;
         border-radius: 0.8rem 0.8rem 0 0;
+
+        ${ StyledInfoLabel } {
+            position: absolute;
+            top: 1.4rem;
+            background: ${ props => props.theme.colors.darkYellow };
+        }
     }
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.tablet ) } {

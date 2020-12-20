@@ -13,6 +13,7 @@ export const StyledHeader = styled.div`
     height: 25rem;
     padding: 0 2.4rem;
     box-sizing: border-box;
+    z-index: 99;
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
         padding: 0;

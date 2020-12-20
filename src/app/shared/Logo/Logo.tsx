@@ -7,5 +7,5 @@ interface Props {
 
 export const Logo = () => {
 
-    return <LogoWrapper>join.tsh.io</LogoWrapper>;
+    return <LogoWrapper>{ "join.tsh.io" }</LogoWrapper>;
 };

@@ -42,12 +42,13 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
             }
         case ProductsActionType.SET_FILTERS:
             const [ name, isChecked ] = Object.entries( action.payload )[0];
+            const clearFilter = !isChecked ? "" : isChecked;
 
             return {
                 ...state,
                 searchParams: {
                     ...searchParams,
-                    [name as any]: isChecked, 
+                    [name as any]: clearFilter, 
                 }
             }
         case ProductsActionType.SET_SEARCH_PHRASE:

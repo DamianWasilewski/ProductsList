@@ -8,10 +8,14 @@ interface Props {
     readonly onClick?: () => void;
 }
 
+export interface StyledCtaButttonProps {
+    readonly isDisabled?: boolean;
+}
+
 export const CtaButton = ( { text, type = "button", isDisabled, onClick }: Props ) => {
-  
+    
     return (
-        <StyledCtaButton type={ type } onClick={ onClick }>
+        <StyledCtaButton type={ type } onClick={ onClick } disabled={ isDisabled }>
             <StyledCtaButtonText>{ text }</StyledCtaButtonText>
         </StyledCtaButton>
     );
