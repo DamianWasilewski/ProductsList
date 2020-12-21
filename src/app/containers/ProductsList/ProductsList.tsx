@@ -2,9 +2,9 @@ import { Product } from '../../components/Product/Product';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from 'store';
-import { getProductsList, getSearchParams } from 'store/selectors';
+import { getIsLoading, getProductsList, getSearchParams } from 'store/selectors';
 import { ContentWrapper, ProductsWrapper } from "./styled";
-import { Pagination } from 'app/components/Pagination';
+import { PaginationWrapper } from 'app/components/PaginationWrapper';
 import { ProductDetails, ProductDetailsProps } from 'app/components/ProductDetails';
 
 interface Props {
@@ -23,6 +23,7 @@ export const ProductsList = () => {
     const dispatch = useDispatch();
     const searchParams = useSelector( getSearchParams );
     const products = useSelector( getProductsList );
+    const isLoading = useSelector( getIsLoading );
     const [ popUpState, setPopUpState ] = useState( initialState );
     const { imgUrl, title, description, promo, isOpen } = popUpState;
 
@@ -65,12 +66,12 @@ export const ProductsList = () => {
   
     return (
         <>
-            <ContentWrapper>
+            { !isLoading ? <ContentWrapper>
                 <ProductsWrapper>
                     { renderProducts() }
                 </ProductsWrapper>
-                <Pagination />
-            </ContentWrapper>
+                <PaginationWrapper />
+            </ContentWrapper> : null }
             <ProductDetails imgUrl={ imgUrl } title={ title } description={ description } isOpen={ isOpen } promo={ promo } onClose={ onCloseHandler }/>
         </>
     );

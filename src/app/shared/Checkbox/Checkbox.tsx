@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper } from "./styled";
+import { StyledCheckboxInput, Wrapper } from "./styled";
 
 interface Props {
     readonly label: string;
@@ -7,12 +7,16 @@ interface Props {
     readonly onChange?: ( event: React.ChangeEvent<HTMLInputElement> ) => void;
 }
 
+export interface StyledCheckboxProps {
+    imageSrc?: string;
+}
+
 export const Checkbox = ( { label, name, onChange }: Props ) => {
     const inputName = name ? name : label;
 
     return (
         <Wrapper>
-            <input data-testid="filterCheckbox" type="checkbox" name={ inputName } id={ label } value={ label } onChange={ onChange }/>
+            <StyledCheckboxInput imageSrc={ "../../../assets/images/crossIcon.svg" } data-testid="filterCheckbox" type="checkbox" name={ inputName } id={ label } value={ label } onChange={ onChange }/>
             <label htmlFor={ label }>{ label }</label>
         </Wrapper>
     );

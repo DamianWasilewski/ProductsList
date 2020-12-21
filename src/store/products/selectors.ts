@@ -24,3 +24,13 @@ export const getIsLoading = createSelector<RootState, ProductsState, boolean>(
     getProductsState,
     productsState => productsState.isLoading
 );
+
+export const getCurrentPage = createSelector<RootState, ProductsState, number>(
+    getProductsState,
+    productsState => parseInt(productsState.data.meta?.currentPage!, 0)
+);
+
+export const getTotalPages = createSelector<RootState, ProductsState, number>(
+    getProductsState,
+    productsState => productsState.data.meta?.totalPages!
+);
