@@ -17,6 +17,7 @@ export const PaginationWrapper = () => {
         <ContentWrapper>
             <SelectField selectOptions={ config.productsPerPageOptions } id={ "LimitsPerPage" } name={ "LimitPerPageSelect" } onChange={ onProductsLimitPerPageChange } />
             <Pagination />
+            <div>{ "" }</div>
         </ContentWrapper>
     );
 };
