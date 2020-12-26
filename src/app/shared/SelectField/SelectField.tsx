@@ -1,4 +1,5 @@
 import React from 'react';
+import { ContentWrapper } from './styled';
 
 interface Props {
   readonly selectOptions: Array<number | string | SelectOptions>;
@@ -15,6 +16,7 @@ export interface SelectOptions {
 
 function renderSingleOption( optionValues: Array<number | string> ) {
   const [ value, label ] = optionValues;
+  
   return <option data-testid="ProductsPerPageSelect-option" key={ value } value={ value }>{ label }</option>;
 };
 
@@ -29,9 +31,12 @@ function renderOptions( options: Array<number | string | SelectOptions> ): JSX.E
 export const SelectField = ( { selectOptions, id, name, onChange, onBlur }: Props ) => {
   
   const selectField: JSX.Element = (
-      <select data-testid="ProductsPerPageSelect" id={ id } name={ name } onChange={ onChange } onBlur={ onBlur }>
-          { renderOptions( selectOptions ) }
-      </select>
+      <ContentWrapper>
+        <label htmlFor={ id }>{ "Items per page" }</label>
+        <select data-testid="ProductsPerPageSelect" id={ id } name={ name } onChange={ onChange } onBlur={ onBlur }>
+            { renderOptions( selectOptions ) }
+        </select>
+      </ContentWrapper>
   );
 
   return selectField;

@@ -7,7 +7,7 @@ export const ContentWrapper = styled.div`
     align-items: center;
     height: 34.4rem;
     width: 100%;
-    margin: 2.4rem 2.4rem 0;
+    margin: 2.4rem 2.4rem;
     background-color: white;
     border-radius: 0.8rem;
 

@@ -5,7 +5,6 @@ import { StyledLoadingContentProps } from "./ProductsList";
 export const ContentWrapper = styled.div<StyledLoadingContentProps>`
     display: flex;
     flex-direction: column;
-    ${ props => props.isLoading ? "background-color: white" : "" };
 
     ${ StyledSpinner } {
         margin-top: 25vh;
