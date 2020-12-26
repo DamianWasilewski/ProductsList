@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledImageWrapper } from "./styled";
 
 export interface ImageWrapperProps {
-    imgSrc: string;
+    imgSrc?: string;
     children?: React.ReactNode
     isDisabled?: boolean;
 }

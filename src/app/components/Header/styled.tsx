@@ -17,11 +17,15 @@ export const StyledHeader = styled.div`
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.tablet ) } {
         height: 25rem;
+        justify-content: space-between;
     }
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
-        padding: 0;
-        justify-content: space-around;
+        padding: 0 1.2rem;
+    }
+
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptopL ) } {
+        padding: 0 11.6rem;
     }
 `;
 
