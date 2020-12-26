@@ -34,3 +34,8 @@ export const getTotalPages = createSelector<RootState, ProductsState, number>(
     getProductsState,
     productsState => productsState.data.meta?.totalPages!
 );
+
+export const areProdcutsExisting = createSelector<RootState, ProductsState, boolean>(
+    getProductsState,
+    productsState => productsState.data.items?.length! > 0
+);

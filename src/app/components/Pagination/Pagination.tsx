@@ -77,5 +77,5 @@ export const Pagination = () => {
         } );
     };
 
-    return <ContentWrapper> { renderPagination() } </ContentWrapper>;
+    return <ContentWrapper>{ renderPagination() }</ContentWrapper>;
 };

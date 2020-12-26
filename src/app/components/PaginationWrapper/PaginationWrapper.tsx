@@ -6,7 +6,12 @@ import { setProductsPerPage } from 'store';
 import { Pagination } from '../Pagination/Pagination';
 import { ContentWrapper } from "./styled";
 
-export const PaginationWrapper = () => {
+interface Props {
+    areProducts: boolean;
+}
+
+
+export const PaginationWrapper = ( { areProducts }: Props ) => {
     const dispatch = useDispatch();
 
     const onProductsLimitPerPageChange = ( event: React.ChangeEvent<HTMLSelectElement> ) => {
@@ -14,10 +19,13 @@ export const PaginationWrapper = () => {
     }
 
     return (
-        <ContentWrapper>
-            <SelectField selectOptions={ config.productsPerPageOptions } id={ "LimitsPerPage" } name={ "LimitPerPageSelect" } onChange={ onProductsLimitPerPageChange } />
-            <Pagination />
-            <div>{ "" }</div>
-        </ContentWrapper>
+        <>
+            { areProducts &&
+                <ContentWrapper>
+                    <SelectField selectOptions={ config.productsPerPageOptions } id={ "LimitsPerPage" } name={ "LimitPerPageSelect" } onChange={ onProductsLimitPerPageChange } />
+                    <Pagination />
+                    <div>{ "" }</div>
+                </ContentWrapper> }
+        </>
     );
 };

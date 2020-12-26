@@ -48,7 +48,8 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                 ...state,
                 searchParams: {
                     ...searchParams,
-                    [name as any]: clearFilter, 
+                    [name as any]: clearFilter,
+                    page: 1,
                 }
             }
         case ProductsActionType.SET_SEARCH_PHRASE:

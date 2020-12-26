@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Nunito', sans-serif;
         margin: 0;
+        background-color: ${ props => props.theme.colors.paleGrey };
     }
 `;
 

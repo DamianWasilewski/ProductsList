@@ -2,13 +2,15 @@ import { Product } from '../../components/Product/Product';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from 'store';
-import { getIsLoading, getProductsList, getSearchParams } from 'store/selectors';
+import { getIsLoading, getProductsList, areProdcutsExisting, getSearchParams } from 'store/selectors';
 import { ContentWrapper, ProductsWrapper } from "./styled";
 import { PaginationWrapper } from 'app/components/PaginationWrapper';
 import { ProductDetails, ProductDetailsProps } from 'app/components/ProductDetails';
+import { Spinner } from 'app/shared/Spinner';
+import { NoProductsInfo } from 'app/components/NoProductsInfo';
 
-interface Props {
-    
+export interface StyledLoadingContentProps {
+    isLoading?: boolean;
 };
 
 const initialState: ProductDetailsProps = {
@@ -23,6 +25,7 @@ export const ProductsList = () => {
     const dispatch = useDispatch();
     const searchParams = useSelector( getSearchParams );
     const products = useSelector( getProductsList );
+    const areProducts = useSelector( areProdcutsExisting );
     const isLoading = useSelector( getIsLoading );
     const [ popUpState, setPopUpState ] = useState( initialState );
     const { imgUrl, title, description, promo, isOpen } = popUpState;
@@ -59,19 +62,26 @@ export const ProductsList = () => {
                     imageUrl={ product.image }
                     isDisabled={ !product.active }
                     promo={ product.promo }
-                    onClick={ ctaButtonClickHandler }/>
+                    onClick={ ctaButtonClickHandler } />
             );
         } );
     };
+
+    const renderNoProductsInfo = () => <NoProductsInfo />
+
+    const renderContent = () => products ? renderProducts() : renderNoProductsInfo();
   
     return (
         <>
-            { !isLoading ? <ContentWrapper>
-                <ProductsWrapper>
-                    { renderProducts() }
-                </ProductsWrapper>
-                <PaginationWrapper />
-            </ContentWrapper> : null }
+            <ContentWrapper isLoading={ isLoading }>
+            { !isLoading ?
+                <>
+                    <ProductsWrapper>
+                        { renderContent() }
+                    </ProductsWrapper>
+                    <PaginationWrapper areProducts={ areProducts }/>
+                </> : <Spinner /> }
+            </ContentWrapper>
             <ProductDetails imgUrl={ imgUrl } title={ title } description={ description } isOpen={ isOpen } promo={ promo } onClose={ onCloseHandler }/>
         </>
     );

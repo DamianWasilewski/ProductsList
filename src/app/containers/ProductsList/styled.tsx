@@ -1,9 +1,15 @@
+import { StyledSpinner } from "app/shared/Spinner/styled";
 import { styled } from "theme";
+import { StyledLoadingContentProps } from "./ProductsList";
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<StyledLoadingContentProps>`
     display: flex;
     flex-direction: column;
-    background-color: ${ props => props.theme.colors.paleGrey };
+    ${ props => props.isLoading ? "background-color: white" : "" };
+
+    ${ StyledSpinner } {
+        margin-top: 25vh;
+    }
 `;
 
 export const ProductsWrapper = styled.div`

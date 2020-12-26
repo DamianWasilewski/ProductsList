@@ -10,10 +10,14 @@ export const StyledHeader = styled.div`
     align-items: center;
     background: white;
     width: 100%;
-    height: 25rem;
+    height: 20rem;
     padding: 0 2.4rem;
     box-sizing: border-box;
     z-index: 99;
+
+    ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.tablet ) } {
+        height: 25rem;
+    }
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.laptop ) } {
         padding: 0;
