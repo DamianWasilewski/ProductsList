@@ -3,5 +3,5 @@ import { StyledSpinner } from "./styled";
 
 export const Spinner = () => {
   
-    return <StyledSpinner>{ "" }</StyledSpinner>;
+    return <StyledSpinner data-testid="Spinner-loader" >{ "" }</StyledSpinner>;
 };

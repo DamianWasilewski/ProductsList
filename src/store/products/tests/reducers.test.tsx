@@ -68,7 +68,7 @@ describe( "products/reducers", () => {
             data: {},
             searchParams: {
                 ...mockProductsState().searchParams,
-                promo: false,
+                promo: "",
             }
         };
 
@@ -91,7 +91,7 @@ describe( "products/reducers", () => {
             data: {},
             searchParams: {
                 ...mockProductsState().searchParams,
-                active: false,
+                active: "",
             }
         };
 

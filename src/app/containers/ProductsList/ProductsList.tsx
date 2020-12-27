@@ -79,7 +79,7 @@ export const ProductsList = () => {
                     <ProductsWrapper>
                         { renderContent() }
                     </ProductsWrapper>
-                    <PaginationWrapper areProducts={ areProducts }/>
+                    <PaginationWrapper data-testid="Pagination-wrapper" areProducts={ areProducts }/>
                 </> : <Spinner /> }
             </ContentWrapper>
             <ProductDetails imgUrl={ imgUrl } title={ title } description={ description } isOpen={ isOpen } promo={ promo } onClose={ onCloseHandler }/>
