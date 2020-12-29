@@ -31,7 +31,7 @@ export const ModalWindow = ( { children, isOpen = false, onClose }: Props ) => {
         <>
             { isOpen ? 
                 <ContentWrapper>
-                    <Backdrop onClick={ onClose } />
+                    <Backdrop data-cy="modal-backdrop" onClick={ onClose } />
                     { children }
                 </ContentWrapper> : null }
         </>

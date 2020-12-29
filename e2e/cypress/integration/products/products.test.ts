@@ -28,6 +28,20 @@ context( 'Products/Home Page should', () => {
     cy.get('[data-cy=product-details-popUp]').should( 'not.exist' );
   } );
 
+  it( 'close "show details" pop-up on esc keyboard button press', () => {
+    cy.get('[data-cy=show-details]').first().click();
+
+    cy.get('body').type('{esc}').trigger('keydown', { force: true });
+    cy.get('[data-cy=product-details-popUp]').should( 'not.exist' );
+  } );
+
+  it( 'close "show details" pop-up on modal backdrop click', () => {
+    cy.get('[data-cy=show-details]').first().click();
+
+    cy.get('[data-cy=modal-backdrop]').click( { force: true } );
+    cy.get('[data-cy=product-details-popUp]').should( 'not.exist' );
+  } );
+
   it( 'close "show details" pop-up on close button click', () => {
     cy.get('[data-cy=show-details]').first().click();
 
