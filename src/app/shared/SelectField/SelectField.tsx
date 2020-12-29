@@ -32,6 +32,8 @@ function renderOptions( options: Array<number | string | SelectOptions> ): JSX.E
 
 export const SelectField = ( { selectOptions, id, name, onChange, onBlur }: Props ) => {
   const searchParams = useSelector( getSearchParams );
+
+  // eslint-disable-next-line
   const [ productsPerPage, setProductsPerPage ] = useState( searchParams.limit );
   
   const selectField: JSX.Element = (

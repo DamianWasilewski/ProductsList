@@ -1,8 +1,8 @@
 import React from 'react';
 import { SearchButton, SearchFieldWrapper } from './styled';
 import { ReactComponent as SearchIconSvg } from "../../../assets/images/searchIcon.svg";
-import { TextField } from '../TextField';
-import { DefaultInputProps } from '../types';
+import { TextField } from '../../shared/TextField';
+import { DefaultInputProps } from '../../shared/types';
 
 interface Props extends DefaultInputProps {
     readonly onClick?: () => void;

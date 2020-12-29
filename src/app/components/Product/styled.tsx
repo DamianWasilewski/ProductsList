@@ -1,5 +1,5 @@
-import { StyledCtaButttonProps } from "app/shared/CtaButton";
-import { StyledCtaButton } from "app/shared/CtaButton/styled";
+import { StyledCtaButttonProps } from "app/components/CtaButton";
+import { StyledCtaButton } from "app/components/CtaButton/styled";
 import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
 import { StyledInfoLabel } from "app/shared/InfoLabel/styled";
 import { styled } from "theme";

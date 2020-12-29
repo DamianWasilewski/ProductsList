@@ -1,6 +1,6 @@
 import { Checkbox } from 'app/shared/Checkbox';
 import { Logo } from 'app/shared/Logo';
-import { SearchField } from 'app/shared/SearchField';
+import { SearchField } from 'app/components/SearchField';
 import config from 'config';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';

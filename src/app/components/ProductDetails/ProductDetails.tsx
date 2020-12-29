@@ -17,7 +17,7 @@ export interface ProductDetailsProps {
 export const ProductDetails = ( { imgUrl, title, description, isOpen, promo, onClose }: ProductDetailsProps ) => {
   
     return (
-        <ModalWindow isOpen={ isOpen }>
+        <ModalWindow isOpen={ isOpen } onClose={ onClose }>
             <ContentWrapper data-cy='product-details-popUp'>
                 <ImageWrapper imgSrc={ imgUrl }>
                     { promo ? <InfoLabel text={ "promo" } /> : null }

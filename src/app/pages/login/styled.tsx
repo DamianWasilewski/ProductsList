@@ -1,5 +1,5 @@
 import { StyledHeader } from "app/components/Header/styled";
-import { StyledCtaButton } from "app/shared/CtaButton/styled";
+import { StyledCtaButton } from "app/components/CtaButton/styled";
 import { StyledHintLink } from "app/shared/HintLink/styled";
 import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
 import { TextFieldInput, TextFieldWrapper } from "app/shared/TextField/styled";

@@ -3,6 +3,7 @@ import { StyledInfoLabel } from "app/shared/InfoLabel/styled";
 import { styled } from "theme";
 
 export const ContentWrapper = styled.div`
+    z-index: 26;
     height: 53rem;
     margin: 0 2.4rem;
     border-radius: 0.8rem;
@@ -39,7 +40,7 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-width: fit-content;
+    width: fit-content;
     margin-top: 0.8rem;
     font-size: 1.6rem;
     color: ${ props => props.theme.colors.darkGrey };

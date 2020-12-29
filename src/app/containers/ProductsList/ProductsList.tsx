@@ -30,9 +30,11 @@ export const ProductsList = () => {
     const [ popUpState, setPopUpState ] = useState( initialState );
     const { imgUrl, title, description, promo, isOpen } = popUpState;
 
+    /* eslint-disable */
     useEffect( () => {
         dispatch( fetchProducts( searchParams ) )
     }, [ searchParams ] );
+    /* eslint-enable */
 
     const ctaButtonClickHandler = ( title: string, description: string, imgUrl: string, promo: boolean ) => {
         setPopUpState( {

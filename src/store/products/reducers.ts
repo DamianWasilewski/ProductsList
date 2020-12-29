@@ -30,7 +30,6 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                     ...searchParams,
                     page: action.payload
                 }
-                
             }
         case ProductsActionType.SET_PRODUCTS_PER_PAGE:
             return {
@@ -58,7 +57,8 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                 ...state,
                 searchParams: {
                     ...searchParams,
-                    searchPhrase: action.payload
+                    searchPhrase: action.payload,
+                    page: 1,
                 }
             }
 

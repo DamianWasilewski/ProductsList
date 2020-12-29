@@ -1,4 +1,4 @@
-import { CtaButton } from 'app/shared/CtaButton';
+import { CtaButton } from 'app/components/CtaButton';
 import { ImageWrapper } from 'app/shared/imageWrapper';
 import { InfoLabel } from 'app/shared/InfoLabel';
 import React from 'react';

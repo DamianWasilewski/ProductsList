@@ -1,4 +1,4 @@
-import { StyledCtaButton } from "app/shared/CtaButton/styled";
+import { StyledCtaButton } from "app/components/CtaButton/styled";
 import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
 import { styled } from "theme";
 
