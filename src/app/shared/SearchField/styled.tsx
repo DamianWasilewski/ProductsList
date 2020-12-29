@@ -10,13 +10,10 @@ export const SearchFieldWrapper = styled.div`
     }
 
     input {
-        height: 4.8rem;
-        border-radius: 0.8rem;
         border: ${ props => `0.1rem solid ${ props.theme.colors.lightGrey }` };
-        padding: 0;
 
         &::placeholder {
-            padding-left: 1.5rem;
+            padding-left: 0;
         }
     }
 
@@ -36,8 +33,5 @@ export const SearchButton = styled.button`
     bottom: 0;
     outline: none;
     padding: 0;
-
-    svg {
-        padding-right: 1.5rem;
-    }
+    padding-right: 1.4rem;
 `;

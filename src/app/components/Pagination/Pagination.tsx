@@ -47,9 +47,8 @@ export const Pagination = () => {
     };
 
     const onClickHandler = ( event: React.MouseEvent<HTMLButtonElement> ) => {
-        // Temp solution to not have error thrown on ... button click
         event.preventDefault();
-        if ( event.currentTarget.value !== '0' ) {
+        if ( event.currentTarget.value !== '0' && parseInt( event.currentTarget.value, 0 ) !== currentPage ) {
           dispatch( setPageNumber( parseInt( event.currentTarget.value, 0 ) ) );  
         }
     };

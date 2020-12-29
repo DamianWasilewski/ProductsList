@@ -4,6 +4,8 @@ import { StyledTextFieldProps } from "./TextField";
 export const TextFieldWrapper = styled.div<StyledTextFieldProps>`
     position: relative;
     width: 100%;
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
 
     label {
         font-size: 1.4rem;
@@ -22,12 +24,16 @@ export const TextFieldInput = styled.input`
     height: 4.8rem;
     border-radius: 0.8rem;
     border: ${ props => `0.1rem solid ${ props.theme.colors.lightGrey }` };
-    padding: 0;
+    padding: 0 1.4rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    padding: 0 1.4rem;
+    box-sizing: border-box;
 
     &::placeholder {
         font-family: 'Nunito', sans-serif;
-        padding-left: 1.5rem;
         color: ${ props => props.theme.colors.black };
         font-weight: bold;
+        padding: 0;
     }
 `;

@@ -7,7 +7,7 @@ context( 'Products/Home Page should', () => {
     cy.visit(Cypress.env().baseUrl);
   });
 
-  it('Displays products page', () => {
+  it('Display products page', () => {
     cy.clearSession();
     cy.location().should(loc => {
       expect(loc.href).to.eq(NavigationMenu.homeLink);
@@ -15,45 +15,45 @@ context( 'Products/Home Page should', () => {
     cy.contains('join.tsh.io');
   });
 
-  it( 'Should open pop-up on "show details" button click and close it on close button click', () => {
+  it( 'open pop-up on "show details" button click and close it on close button click', () => {
     cy.get('[data-cy=show-details]').first().click();
 
     cy.get('[data-cy=product-details-popUp]').should('exist');
   } );
 
-  it( 'Should close "show details" pop-up on close button click', () => {
+  it( 'close "show details" pop-up on close button click', () => {
     cy.get('[data-cy=show-details]').first().click();
 
     cy.get('[data-cy=popUp-close-button]').click();
     cy.get('[data-cy=product-details-popUp]').should( 'not.exist' );
   } );
 
-  it( 'Should close "show details" pop-up on close button click', () => {
+  it( 'close "show details" pop-up on close button click', () => {
     cy.get('[data-cy=show-details]').first().click();
 
     cy.get('[data-cy=popUp-close-button]').click();
     cy.get('[data-cy=product-details-popUp]').should( 'not.exist' );
   } );
 
-  it( 'Should render products list on promo filter checkbox click', () => {
+  it( 'render products list on promo filter checkbox click', () => {
     cy.get('input[name=promo]').click();
 
     cy.get('[data-cy=show-details]').should( 'exist' );
   } );
 
-  it( 'Should render products list on active filter checkbox click', () => {
+  it( 'render products list on active filter checkbox click', () => {
     cy.get('input[name=active]').click();
 
     cy.get('[data-cy=show-details]').should( 'exist' );
   } );
 
-  it( 'Should show menu after clicking on user avatar', () => {
+  it( 'show menu after clicking on user avatar', () => {
     cy.get('[data-testid=logged-in-login-button]').click();
 
     cy.get('[data-cy=logged-in-user-menu]').should( 'exist' );
   } );
 
-  it( 'Should show only promo products when promo filter is set', () => {
+  it( 'show only promo products when promo filter is set', () => {
     cy.get('input[name=promo]').click();
 
     cy.get('[data-cy=product-wrapper]')
@@ -63,7 +63,7 @@ context( 'Products/Home Page should', () => {
       } );
   } );
 
-  it( 'Should show only active products when active filter is set', () => {
+  it( 'show only active products when active filter is set', () => {
     cy.get('input[name=active]').click();
 
     cy.get('[data-cy=product-wrapper]')
@@ -73,7 +73,7 @@ context( 'Products/Home Page should', () => {
       } );
   } );
 
-  it( 'Should show only active and promo products when active and promo filters are set', () => {
+  it( 'show only active and promo products when active and promo filters are set', () => {
     cy.get('input[name=promo]').click();
     cy.get('input[name=active]').click();
 
@@ -85,48 +85,48 @@ context( 'Products/Home Page should', () => {
       } );
   } );
 
-  it( 'Should show products after click on pagination button', () => {
+  it( 'show products after click on pagination button', () => {
     cy.get('[data-cy=pagination-button]').contains( '2' ).click();
 
     cy.get('[data-cy=show-details]').should( 'exist' );
   } );
 
-  it( 'Should style correct button on corresponding products page', () => {
+  it( 'style correct button on corresponding products page', () => {
     cy.get('[data-cy=pagination-button]').contains( '2' ).click();
 
     cy.get('[data-cy=pagination-button]').contains( '2' ).should( 'have.css', 'color', 'rgb(33, 64, 232)' );
   } );
 
-  it( 'Should have "First" pagination button disabled when on first page', () => {
+  it( 'have "First" pagination button disabled when on first page', () => {
 
     cy.get('[data-cy=pagination-button]').contains( 'First' ).should( 'be.disabled' );
   } );
 
-  it( 'Should have "First" pagination button not disabled when switching from first page', () => {
+  it( 'have "First" pagination button not disabled when switching from first page', () => {
     cy.get('[data-cy=pagination-button]').contains( '2' ).click();
 
     cy.get('[data-cy=pagination-button]').contains( 'First' ).should( 'not.be.disabled' );
   } );
   
-  it( 'Should have "Last" pagination button not disabled when on first page', () => {
+  it( 'have "Last" pagination button not disabled when on first page', () => {
 
     cy.get('[data-cy=pagination-button]').contains( 'Last' ).should( 'not.be.disabled' );
   } );
 
-  it( 'Should have "Last" pagination button disabled when on last page', () => {
+  it( 'have "Last" pagination button disabled when on last page', () => {
     cy.get('[data-cy=pagination-button]').contains( 'Last' ).click();
 
     cy.get('[data-cy=pagination-button]').contains( 'Last' ).should( 'be.disabled' );
   } );
 
-  it( 'Should go to first products page on clicking "First" pagination button', () => {
+  it( 'go to first products page on clicking "First" pagination button', () => {
     cy.get('[data-cy=pagination-button]').contains( '2' ).click();
     cy.get('[data-cy=pagination-button]').contains( 'First' ).click();
 
     cy.get('[data-cy=pagination-button]').contains( '1' ).should( 'have.css', 'color', 'rgb(33, 64, 232)' );
   } );
 
-  it( 'Should go to last products page on clicking "Last" pagination button', () => {
+  it( 'go to last products page on clicking "Last" pagination button', () => {
     cy.get('[data-cy=pagination-button]').contains( 'Last' ).click();
 
     cy.get('[data-cy=pagination-button]')
@@ -134,5 +134,22 @@ context( 'Products/Home Page should', () => {
         const buttonsLength = Cypress.$( buttons ).length;
         cy.get('[data-cy=pagination-button]').eq( buttonsLength - 2 ).should( 'have.css', 'color', 'rgb(33, 64, 232)' );
       } );
+  } );
+
+  it( 'render proper number of products after selecting option from limits per page select input', () => {
+    cy.get('[data-testid=ProductsPerPageSelect]')
+      .select( '24' )
+
+    cy.get('[data-cy=product-wrapper]').should( 'have.length', '24' ); 
+  } );
+
+  it( 'render proper number of products after selecting option from limits per page select input 2 times', () => {
+    cy.get('[data-testid=ProductsPerPageSelect]')
+      .select( '24' )
+
+    cy.get('[data-testid=ProductsPerPageSelect]')
+      .select( '12' )
+
+    cy.get('[data-cy=product-wrapper]').should( 'have.length', '12' ); 
   } );
 });

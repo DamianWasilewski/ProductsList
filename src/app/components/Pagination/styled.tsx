@@ -25,7 +25,7 @@ export const PaginationButton = styled.button<PaginationButtonProps>`
     font-size: 1.4rem;
     ${ props => !props.disabled ? "cursor: pointer" : "" };
     ${ props => props.disabled ? `color: ${ props.theme.colors.darkGrey }` :
-        props.hasSameValueAsCurrentPage ? `color: ${ props.theme.colors.darkPurple }` : "" };
+        props.hasSameValueAsCurrentPage ? `color: ${ props.theme.colors.darkPurple }; cursor: default` : "" };
 
     ${ props => props.theme.mediaQueryFunctions.up( props.theme.breakpoints.tablet ) } {
         padding: 0 0.8rem;

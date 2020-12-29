@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getSearchParams } from 'store/selectors';
 import { ContentWrapper } from './styled';
 
 interface Props {
@@ -29,11 +31,13 @@ function renderOptions( options: Array<number | string | SelectOptions> ): JSX.E
 };
 
 export const SelectField = ( { selectOptions, id, name, onChange, onBlur }: Props ) => {
+  const searchParams = useSelector( getSearchParams );
+  const [ productsPerPage, setProductsPerPage ] = useState( searchParams.limit );
   
   const selectField: JSX.Element = (
       <ContentWrapper>
         <label htmlFor={ id }>{ "Items per page" }</label>
-        <select data-testid="ProductsPerPageSelect" id={ id } name={ name } onChange={ onChange } onBlur={ onBlur }>
+        <select data-testid="ProductsPerPageSelect" value={ productsPerPage as number | string } id={ id } name={ name } onChange={ onChange } onBlur={ onBlur }>
             { renderOptions( selectOptions ) }
         </select>
       </ContentWrapper>
