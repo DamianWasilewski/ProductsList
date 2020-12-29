@@ -8,11 +8,8 @@ import { ContentWrapper, FormAndHintWrapper, LoginImageWrapper, Spacer, StyledPa
 import loginImage from 'assets/images/loginImage.png';
 
 export const Login = () => {
-    // remove eslint diabling after introducing login to this page
-    /* eslint-disable */
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
-    /* eslint-enable */
 
     const onUsernameInputChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         setUsername( event.target.value );
@@ -32,8 +29,8 @@ export const Login = () => {
                             { "Login" }
                         </StyledPageHeading>
                         <StyledForm>
-                            <TextField placeholder={ "Enter username" } label={ "username" } onChange={ onUsernameInputChange } />
-                            <PasswordField placeholder={ "Enter password" } label={ "password" } onChange={ onPasswordInputChange } />
+                            <TextField value={ username } placeholder={ "Enter username" } label={ "username" } onChange={ onUsernameInputChange } />
+                            <PasswordField value={ password } placeholder={ "Enter password" } label={ "password" } onChange={ onPasswordInputChange } />
                             <CtaButton type={ "submit" } text={ "Log in" } />
                         </StyledForm>
                         <HintLink url={ "/" } text={ "Forgot password?" } />
