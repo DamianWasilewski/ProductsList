@@ -20,7 +20,7 @@ export const SearchField = ( { label, name, value, onChange, onClick }: Props ) 
                     isLabelVisible={ false }
                     onChange={ onChange }
                     testId={ "searchField" } />
-                <SearchButton onClick={ onClick }><SearchIconSvg /></SearchButton>
+                <SearchButton data-testid="search-button" onClick={ onClick }><SearchIconSvg /></SearchButton>
             </SearchFieldWrapper>
     );
 };

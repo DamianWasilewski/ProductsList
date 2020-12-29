@@ -15,7 +15,7 @@ export interface StyledCtaButttonProps {
 export const CtaButton = ( { text, type = "button", isDisabled, onClick }: Props ) => {
     
     return (
-        <StyledCtaButton type={ type } onClick={ onClick } disabled={ isDisabled }>
+        <StyledCtaButton data-cy='show-details' type={ type } onClick={ onClick } disabled={ isDisabled }>
             <StyledCtaButtonText>{ text }</StyledCtaButtonText>
         </StyledCtaButton>
     );

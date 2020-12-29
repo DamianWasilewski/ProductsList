@@ -15,33 +15,32 @@ interface Props {
 }
 
 export const Header = ( { areFiltersVisible = true, isLoginInfoVisible = true }: Props ) => {
-
     const dispatch = useDispatch();
     const [ searchPhrase, setSearchPhrase ] = useState( "" );
   
     const onCheckboxChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
       dispatch( setFilters( { [event.target.name]: event.target.checked } ) )
-    }
+    };
 
     const onNoValueAfterInputClear = () => {
       setSearchPhrase( "" );
       
       return dispatch( removeSearchPhrase() );
-    }
+    };
   
     const onSearchInputChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
       return event.target.value ? setSearchPhrase( event.target.value ) : onNoValueAfterInputClear();
-    }
+    };
   
     const onSearchClickHandler = () => {
       dispatch( setReduxSearchPhrase( searchPhrase ) );
-    }
+    };
   
     const renderCheckboxes = () => {
       return config.checkboxFilters.map( filter => {
         return <Checkbox key={ filter } label={ filter } onChange={ onCheckboxChange } />
-      })
-    }
+      } );
+    };
 
     return (
         <StyledHeader>

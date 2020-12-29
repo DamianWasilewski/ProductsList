@@ -68,6 +68,7 @@ export const Pagination = () => {
 
             return (
                 <PaginationButton
+                    data-cy="pagination-button"
                     key={ i }
                     disabled={ isButtonDisabled( rangeValue ) }
                     onClick={ onClickHandler }

@@ -1,9 +1,7 @@
 import React from 'react';
-
 import { fireEvent } from 'tests';
-
 import { Products } from './Products';
-import config from "../../config";
+import config from 'config';
 import { renderAll } from 'utils/testUtils';
 
 describe('Products', () => {

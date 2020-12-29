@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from 'store';
 import { getIsLoading, getProductsList, areProdcutsExisting, getSearchParams } from 'store/selectors';
-import { ContentWrapper, ProductsWrapper } from "./styled";
+import { ContentWrapper, ProductsWrapper } from './styled';
 import { PaginationWrapper } from 'app/components/PaginationWrapper';
 import { ProductDetails, ProductDetailsProps } from 'app/components/ProductDetails';
 import { Spinner } from 'app/shared/Spinner';

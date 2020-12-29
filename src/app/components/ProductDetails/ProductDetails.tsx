@@ -18,10 +18,10 @@ export const ProductDetails = ( { imgUrl, title, description, isOpen, promo, onC
   
     return (
         <ModalWindow isOpen={ isOpen }>
-            <ContentWrapper>
+            <ContentWrapper data-cy='product-details-popUp'>
                 <ImageWrapper imgSrc={ imgUrl }>
                     { promo ? <InfoLabel text={ "promo" } /> : null }
-                    <CloseButton onClick={ onClose }><CrossIconSvg /></CloseButton>
+                    <CloseButton data-cy='popUp-close-button' onClick={ onClose }><CrossIconSvg /></CloseButton>
                 </ImageWrapper>
                 <TextContent>
                     <Title>{ title }</Title>

@@ -7,5 +7,5 @@ interface Props {
 
 export const InfoLabel = ( { text }: Props ) => {
   
-    return <StyledInfoLabel>{ text }</StyledInfoLabel>;
+    return <StyledInfoLabel data-cy='info-label'>{ text }</StyledInfoLabel>;
 };

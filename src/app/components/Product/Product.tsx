@@ -25,7 +25,7 @@ export const Product = ( { title, imageUrl, description, rating, isDisabled, pro
     }
 
     return (
-        <ContentWrapper isDisabled={ isDisabled }>
+        <ContentWrapper isDisabled={ isDisabled } data-cy="product-wrapper">
             <ImageWrapper imgSrc={ imageUrl } isDisabled={ isDisabled }>
                 { promo ? <InfoLabel text={ "promo" } /> : null }
             </ImageWrapper>
