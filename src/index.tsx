@@ -5,9 +5,11 @@ import { AppProviders } from 'providers/AppProviders';
 
 import { App } from './app/App';
 import * as serviceWorker from './serviceWorker';
+import GlobalStyle from 'globalStyles';
 
 ReactDOM.render(
   <AppProviders>
+    <GlobalStyle />
     <App />
   </AppProviders>,
   document.getElementById('root'),
