@@ -30,7 +30,7 @@ export const Product = ( { title, imageUrl, description, rating, isDisabled, pro
                 { promo ? <InfoLabel text={ "promo" } /> : null }
             </ImageWrapper>
             <DetailedContent>
-                <Name>{ title }</Name>
+                <Name data-cy="product-name">{ title }</Name>
                 <Description>{ description }</Description>
                 <Rating rating={ rating } />
                 <CtaButton onClick={ onClickHandler } text={ buttonText } isDisabled={ isDisabled } />

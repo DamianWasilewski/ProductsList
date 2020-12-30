@@ -57,7 +57,7 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                 ...state,
                 searchParams: {
                     ...searchParams,
-                    searchPhrase: action.payload,
+                    search: action.payload,
                     page: 1,
                 }
             }
@@ -68,7 +68,7 @@ export const productsReducer = ( state: ProductsState = productsInitState, actio
                 ...state,
                 searchParams: {
                     ...searchParams,
-                    searchPhrase: "",
+                    search: "",
                 }
             }
 

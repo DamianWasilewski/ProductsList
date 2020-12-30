@@ -1,4 +1,4 @@
-import { Header } from 'app/components/Header';
+import { Header } from 'app/containers/Header';
 import { CtaButton } from 'app/components/CtaButton';
 import { HintLink } from 'app/shared/HintLink';
 import { PasswordField } from 'app/shared/PasswordField';

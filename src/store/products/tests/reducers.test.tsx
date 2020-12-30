@@ -106,7 +106,7 @@ describe( "products/reducers", () => {
             data: {},
             searchParams: {
                 ...mockProductsState().searchParams,
-                searchPhrase: "test",
+                search: "test",
             }
         };
 
@@ -119,7 +119,7 @@ describe( "products/reducers", () => {
             ...productsInitState,
             searchParams: {
                 ...productsInitState.searchParams,
-                searchPhrase: "test",
+                search: "test",
             }
         }, setSearchPhrase( payload ) );
 
@@ -128,7 +128,7 @@ describe( "products/reducers", () => {
             data: {},
             searchParams: {
                 ...mockProductsState().searchParams,
-                searchPhrase: "test1",
+                search: "test1",
             }
         };
 

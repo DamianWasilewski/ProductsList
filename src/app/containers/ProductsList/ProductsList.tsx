@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from 'store';
 import { getIsLoading, getProductsList, areProdcutsExisting, getSearchParams } from 'store/selectors';
 import { ContentWrapper, ProductsWrapper } from './styled';
-import { PaginationWrapper } from 'app/components/PaginationWrapper';
+import { PaginationWrapper } from 'app/containers/PaginationWrapper';
 import { ProductDetails, ProductDetailsProps } from 'app/components/ProductDetails';
 import { Spinner } from 'app/shared/Spinner';
 import { NoProductsInfo } from 'app/components/NoProductsInfo';
@@ -69,9 +69,9 @@ export const ProductsList = () => {
         } );
     };
 
-    const renderNoProductsInfo = () => <NoProductsInfo />
-
-    const renderContent = () => products ? renderProducts() : renderNoProductsInfo();
+    const renderNoProductsInfo = () => <NoProductsInfo />;
+    
+    const renderContent = () => areProducts ? renderProducts() : renderNoProductsInfo();
   
     return (
         <>

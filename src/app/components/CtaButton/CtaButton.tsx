@@ -10,6 +10,7 @@ interface Props {
 
 export interface StyledCtaButttonProps {
     readonly isDisabled?: boolean;
+    readonly inverted?: boolean;
 }
 
 export const CtaButton = ( { text, type = "button", isDisabled, onClick }: Props ) => {

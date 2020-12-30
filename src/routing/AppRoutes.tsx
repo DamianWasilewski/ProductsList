@@ -12,12 +12,11 @@ export const AppRoutes = () => {
     <Switch>
       <ErrorBoundary>
         <Route path={AppRoute.home} exact component={Products} />
+        <Route path={AppRoute.login} exact component={Login} />
       </ErrorBoundary>
-      <ErrorBoundary>
-        <Route path={AppRoute.login} component={Login} />
-      </ErrorBoundary>
+        
 
-      <Redirect to={AppRoute.home} />
+      <Redirect to={AppRoute.login} />
     </Switch>
   );
 };

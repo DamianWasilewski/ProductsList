@@ -1,4 +1,4 @@
-import { StyledHeader } from "app/components/Header/styled";
+import { StyledHeader } from "app/containers/Header/styled";
 import { StyledCtaButton } from "app/components/CtaButton/styled";
 import { StyledHintLink } from "app/shared/HintLink/styled";
 import { StyledImageWrapper } from "app/shared/imageWrapper/styled";
@@ -64,6 +64,7 @@ export const FormAndHintWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
+    background: white;
     height: 100%;
     width: 100%;
 

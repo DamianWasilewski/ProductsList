@@ -1,4 +1,4 @@
-import { Header } from 'app/components/Header';
+import { Header } from 'app/containers/Header';
 import { ProductsList } from 'app/containers/ProductsList';
 import React from 'react';
 import { ContentWrapper } from "./styled";

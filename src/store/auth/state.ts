@@ -5,7 +5,7 @@ export interface AuthState {
 }
 
 export const authInitState: AuthState = {
-    isLoggedIn: true,
+    isLoggedIn: false,
     isLoggingIn: false,
     loginError: false,
 }
